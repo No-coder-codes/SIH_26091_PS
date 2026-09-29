@@ -1,0 +1,26 @@
+{
+  "dairy": {
+    "monthly_turnover_ratio": 0.18,
+    "operating_cost_ratio": 0.63,
+    "working_capital_ratio": 0.12,
+    "demand_signal": "Steady household consumption proxy",
+    "competition_signal": "Moderate local supplier density proxy",
+    "catchment": "5–10 km illustrative catchment"
+  },
+  "textile": {
+    "monthly_turnover_ratio": 0.14,
+    "operating_cost_ratio": 0.60,
+    "working_capital_ratio": 0.16,
+    "demand_signal": "Seasonal household and trade demand proxy",
+    "competition_signal": "Moderate tailoring / production density proxy",
+    "catchment": "5–10 km illustrative catchment"
+  },
+  "agriculture": {
+    "monthly_turnover_ratio": 0.12,
+    "operating_cost_ratio": 0.58,
+    "working_capital_ratio": 0.18,
+    "demand_signal": "Crop-cycle consumption and buyer proxy",
+    "competition_signal": "Fragmented farm-enterprise density proxy",
+    "catchment": "5–10 km illustrative catchment"
+  }
+}

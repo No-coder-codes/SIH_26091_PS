@@ -1,0 +1,6 @@
+[
+  {"id":"dairy","name":"Dairy","description":"Illustrative planning context for livestock and dairy-value enterprises.","typical_cost_components":["Livestock & equipment","Feed","Labour","Utilities","Transport"],"revenue_components":["Milk","Curd","Paneer","Other dairy products"]},
+  {"id":"textile","name":"Textile","description":"Illustrative planning context for small production and tailoring enterprises.","typical_cost_components":["Sewing equipment","Raw materials","Labour","Utilities","Inventory"],"revenue_components":["Finished garments","Tailoring","Fabric products"]},
+  {"id":"agriculture","name":"Agriculture","description":"Illustrative planning context for cultivation and farm-linked enterprises.","typical_cost_components":["Equipment","Seeds & inputs","Irrigation","Labour","Transport"],"revenue_components":["Crop sales","Value-added products","Farm produce"]}
+]
+
