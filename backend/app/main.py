@@ -128,11 +128,16 @@ if FRONTEND.exists():
 
 @app.get("/")
 def home():
-    # Version the app bundle in the HTML response so a running local prototype
-    # cannot pair a newer assessment form with a stale cached script.
-    document = (FRONTEND / "index.html").read_text(encoding="utf-8")
+    index_file = FRONTEND / "index.html"
+    if not index_file.exists():
+        return {"status": "ok", "message": "Gram Udyog API v0.2.0"}
+    document = index_file.read_text(encoding="utf-8")
     return HTMLResponse(document.replace('/assets/app.js', '/assets/app.js?v=0.2.0'))
 
 @app.get("/favicon.svg", include_in_schema=False)
 def favicon():
-    return FileResponse(FRONTEND / "favicon.svg", media_type="image/svg+xml")
+    fav_file = FRONTEND / "favicon.svg"
+    if not fav_file.exists():
+        return HTTPException(status_code=404, detail="Favicon not found")
+    return FileResponse(fav_file, media_type="image/svg+xml")
+

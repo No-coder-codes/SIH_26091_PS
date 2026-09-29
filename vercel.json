@@ -14,7 +14,11 @@
       "destination": "/frontend/favicon.svg"
     },
     {
-      "source": "/(.*)",
+      "source": "/",
+      "destination": "/frontend/index.html"
+    },
+    {
+      "source": "/index.html",
       "destination": "/frontend/index.html"
     }
   ]
