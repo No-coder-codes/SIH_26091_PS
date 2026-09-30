@@ -8,18 +8,6 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/index.py"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "frontend/$1"
-    },
-    {
-      "src": "/favicon.svg",
-      "dest": "frontend/favicon.svg"
-    },
-    {
       "src": "/(.*)",
       "dest": "api/index.py"
     }
