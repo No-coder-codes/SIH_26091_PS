@@ -14,12 +14,8 @@
       "destination": "/frontend/favicon.svg"
     },
     {
-      "source": "/",
-      "destination": "/frontend/index.html"
-    },
-    {
-      "source": "/index.html",
-      "destination": "/frontend/index.html"
+      "source": "/(.*)",
+      "destination": "/api/index.py"
     }
   ]
 }

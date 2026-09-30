@@ -21,9 +21,22 @@ from app.financial.engine import calculate, schemes_payload
 from app.services.advisor import advisor_mode, demo_advisor_reply
 from app.services.feasibility import analyse_feasibility
 
+def get_frontend_dir() -> Path:
+    candidates = [
+        Path(__file__).resolve().parents[2] / "frontend",
+        Path(__file__).resolve().parents[1] / "frontend",
+        Path.cwd() / "frontend",
+        Path("/var/task/frontend"),
+    ]
+    for candidate in candidates:
+        if candidate.exists() and (candidate / "index.html").exists():
+            return candidate
+    return candidates[0]
+
 ROOT = Path(__file__).resolve().parents[2]
-FRONTEND = ROOT / "frontend"
+FRONTEND = get_frontend_dir()
 DATA = Path(__file__).resolve().parent / "data" / "business_categories.json"
+
 
 app = FastAPI(title="Gram Udyog API", version="0.2.0")
 # The UI is served from this app in production. Explicit cross-origin access is
@@ -125,8 +138,11 @@ def ai_chat(request: ChatRequest):
 
 if FRONTEND.exists():
     app.mount("/assets", StaticFiles(directory=FRONTEND), name="assets")
+    app.mount("/frontend", StaticFiles(directory=FRONTEND), name="frontend")
 
 @app.get("/")
+@app.get("/index.html")
+@app.get("/frontend/index.html")
 def home():
     index_file = FRONTEND / "index.html"
     if not index_file.exists():
@@ -140,4 +156,5 @@ def favicon():
     if not fav_file.exists():
         return HTTPException(status_code=404, detail="Favicon not found")
     return FileResponse(fav_file, media_type="image/svg+xml")
+
 
