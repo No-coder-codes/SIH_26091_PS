@@ -1,21 +1,27 @@
 {
   "version": 2,
-  "rewrites": [
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
     },
     {
-      "source": "/assets/(.*)",
-      "destination": "/frontend/$1"
+      "src": "/assets/(.*)",
+      "dest": "frontend/$1"
     },
     {
-      "source": "/favicon.svg",
-      "destination": "/frontend/favicon.svg"
+      "src": "/favicon.svg",
+      "dest": "frontend/favicon.svg"
     },
     {
-      "source": "/(.*)",
-      "destination": "/api/index.py"
+      "src": "/(.*)",
+      "dest": "api/index.py"
     }
   ]
 }
